@@ -63,6 +63,49 @@ Location:
 
 ---
 
+### Doubly Linked List
+Generic doubly linked list implementation with head and tail references, bidirectional traversal, and a fail-fast iterator.
+
+Operations:
+- addFirst
+- addLast
+- add (at index)
+- removeFirst
+- removeLast
+- remove (at index)
+- get
+- set
+- contains
+- indexOf
+- reverse
+- clear
+- size
+- isEmpty
+- iterator
+
+Time Complexity:
+
+| Operation      | Complexity     |
+|----------------|----------------|
+| addFirst       | O(1)           |
+| addLast        | O(1)           |
+| add (index)    | O(n)           |
+| removeFirst    | O(1)           |
+| removeLast     | O(1)           |
+| remove (index) | O(n)           |
+| get (index)    | O(n)           |
+| set (index)    | O(n)           |
+| contains       | O(n)           |
+| indexOf        | O(n)           |
+| reverse        | O(n)           |
+| size           | O(1)           |
+| isEmpty        | O(1)           |
+
+Location:  
+`src/main/java/datastructures/list/DoublyLinkedList.java`
+
+---
+
 ## Example Usage
 ```java
 StackAsArray<Integer> stack = new StackAsArray<>();
@@ -88,6 +131,28 @@ System.out.println(arr.contains("Bob")); // true
 System.out.println(arr.size());      // 3
 ```
 
+```java
+DoublyLinkedList<Integer> list = new DoublyLinkedList<>();
+
+list.addFirst(3);
+list.addFirst(1);
+list.addLast(5);
+list.add(1, 2); // insert 2 at index 1
+list.add(3, 4); // insert 4 at index 3
+
+System.out.println(list.get(2));      // 3
+System.out.println(list.contains(4)); // true
+
+list.removeFirst();
+list.removeLast();
+
+list.reverse();
+
+for (Integer val : list) {
+    System.out.print(val + " ");
+}
+// Output: 4 3 2
+```
 ---
 
 ## Planned Implementations
@@ -95,7 +160,6 @@ System.out.println(arr.size());      // 3
 The following data structures will be added progressively:
 
 - Queue
-- Linked List
 - Binary Search Tree
 - AVL Tree
 - Red-Black Tree

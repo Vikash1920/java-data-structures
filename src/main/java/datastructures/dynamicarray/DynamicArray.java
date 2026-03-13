@@ -112,7 +112,6 @@ public class DynamicArray<T> implements Iterable<T> {
             throw new IndexOutOfBoundsException("Index out of bounds: " + index);
         }
         array[index] = element;
-        modCount++;
     }
 
     /**

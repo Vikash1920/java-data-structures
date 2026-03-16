@@ -8,14 +8,14 @@ package datastructures.stack;
  *
  * @param <T> the type of elements stored in the stack
  */
-public class StackAsArray<T> {
+public class ArrayStack<T> {
 
     private T[] stack;
     private int top;
     private int capacity = 1;
 
     @SuppressWarnings("unchecked")
-    public StackAsArray() {
+    public ArrayStack() {
         stack = (T[]) new Object[capacity];
         top = -1;
     }

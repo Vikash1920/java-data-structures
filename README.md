@@ -131,6 +131,31 @@ Location:
 `src/main/java/datastructures/queue/CircularArrayQueue.java`
 
 ---
+### Queue (LinkedList)
+Generic queue implementation using a singly LinkedList.  
+The structure follows FIFO (First-In-First-Out) order.
+
+Operations:
+- enqueue
+- dequeue
+- peek
+- size
+- isEmpty
+
+Time Complexity:
+
+| Operation | Complexity     |
+|-----------|----------------|
+| enqueue   | O(1) amortized |
+| dequeue   | O(1) amortized |
+| peek      | O(1)           |
+| size      | O(1)           |
+| isEmpty   | O(1)           |
+
+Location:  
+`src/main/java/datastructures/queue/LinkedListQueue.java`
+
+---
 
 ## Example Usage
 ```java
@@ -182,6 +207,18 @@ for (Integer val : list) {
 
 ```java
 CircularArrayQueue<Integer> queue = new CircularArrayQueue<>();
+
+queue.enqueue(10);
+queue.enqueue(20);
+queue.enqueue(30);
+
+System.out.println(queue.dequeue()); // 10
+System.out.println(queue.peek());    // 20
+System.out.println(queue.size());    // 2
+```
+
+```java
+LinkedListQueue<Integer> queue = new LinkedListQueue<>();
 
 queue.enqueue(10);
 queue.enqueue(20);

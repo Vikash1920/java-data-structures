@@ -41,7 +41,11 @@ src/
 │           ├── binarysearchtree/
 │           │   ├── BinarySearchTree.java
 │           │   └── BSTDemo.java 
-│           └── redblacktree/        (planned)
+│           ├── redblacktree/
+│           │   ├── RedBlackTree.java
+│           │   └── RBTreeDemo.java 
+│           └── avltree/        (planned)
+│
 └── test/     (planned)                
 ```
 
@@ -242,6 +246,44 @@ Location:
 `src/main/java/datastructures/binarysearchtree/BinarySearchTree.java`
 
 ---
+### Red-Black Tree
+Generic Red-Black Tree implementation — a self-balancing Binary Search Tree that guarantees logarithmic height.
+
+This structure maintains balance through coloring rules and rotations after insertion.
+
+Properties:
+- Each node is either red or black
+- The root is always black
+- No two consecutive red nodes
+- Every path from a node to its leaves has the same number of black nodes
+- Ensures height remains O(log n)
+
+Operations:
+- insert (with rebalancing)
+- contains
+- inOrder (sorted traversal)
+- size
+- isValidRedBlackTree
+- iterator (in-order)
+
+Time Complexity:
+
+| Operation  | Complexity |
+|------------|------------|
+| insert     | O(log n)   |
+| search     | O(log n)   |
+| traversal  | O(n)       |
+| validation | O(n)       |
+
+Notes:
+- Balancing is achieved using left and right rotations combined with recoloring
+- Guarantees better worst-case performance compared to a standard Binary Search Tree
+- Deletion is not implemented in this version (planned)
+
+Location:  
+`src/main/java/datastructures/redblacktree/RedBlackTree.java`
+
+---
 ## Example Usage
 ```java
 ArrayStack<Integer> stack = new ArrayStack<>();
@@ -332,10 +374,23 @@ System.out.println(bst.inOrder());   // [20, 40, 50, 70]
 System.out.println(bst.findMin());   // 20
 System.out.println(bst.findMax());   // 70
 ```
+
+```java
+RedBlackTree<Integer> tree = new RedBlackTree<>();
+
+tree.insert(10);
+tree.insert(20);
+tree.insert(30);
+tree.insert(15);
+
+System.out.println(tree.inOrder()); // [10, 15, 20, 30]
+System.out.println(tree.contains(15)); // true
+System.out.println(tree.size()); // 4
+System.out.println(tree.isValidRedBlackTree()); // true
+```
 ---
 ## Planned Implementations
 
 The following data structures will be added progressively:
 
 - AVL Tree
-- Red-Black Tree

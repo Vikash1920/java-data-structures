@@ -44,7 +44,9 @@ src/
 │           ├── redblacktree/
 │           │   ├── RedBlackTree.java
 │           │   └── RBTreeDemo.java 
-│           └── avltree/        (planned)
+│           └── avltree/        
+│               ├── AVLTree.java
+│               └── AVLTreeDemo.java 
 │
 └── test/     (planned)                
 ```
@@ -284,6 +286,44 @@ Location:
 `src/main/java/datastructures/redblacktree/RedBlackTree.java`
 
 ---
+### AVL Tree
+Generic AVL Tree implementation — a self-balancing Binary Search Tree that maintains the **balance factor** (difference in height between left and right subtrees) to be at most 1.
+
+This ensures logarithmic height for all operations.
+
+Properties:
+- Each node tracks its height
+- Balance factor = height(left) − height(right)
+- Rotations (LL, LR, RL, RR) restore balance after insertion
+- Guarantees height remains O(log n)
+
+Operations:
+- insert (with automatic rebalancing)
+- contains
+- inOrder (sorted traversal)
+- height
+- size
+- isValidAVL
+- iterator (in-order)
+
+Time Complexity:
+
+| Operation  | Complexity |
+|------------|------------|
+| insert     | O(log n)   |
+| search     | O(log n)   |
+| traversal  | O(n)       |
+| validation | O(n)       |
+
+Notes:
+- Balancing is achieved using rotations after insertions
+- Ensures optimal worst-case search performance compared to unbalanced BST
+- Deletion is not implemented in this version (planned)
+
+Location:  
+`src/main/java/datastructures/avltree/AVLTree.java`
+
+---
 ## Example Usage
 ```java
 ArrayStack<Integer> stack = new ArrayStack<>();
@@ -388,9 +428,32 @@ System.out.println(tree.contains(15)); // true
 System.out.println(tree.size()); // 4
 System.out.println(tree.isValidRedBlackTree()); // true
 ```
+
+```java
+AVLTree<Integer> tree = new AVLTree<>();
+
+tree.insert(10);
+tree.insert(20);
+tree.insert(30);
+tree.insert(25);
+
+System.out.println(tree.inOrder());       // [10, 20, 25, 30]
+System.out.println(tree.contains(25));    // true
+System.out.println(tree.height());        // 2
+System.out.println(tree.size());          // 4
+System.out.println(tree.isValidAVL());    // true
+```
+
 ---
-## Planned Implementations
+## Testing (Planned)
 
-The following data structures will be added progressively:
+Unit tests will be implemented using **JUnit** for all data structures to ensure correctness.
 
-- AVL Tree
+Tests will cover:
+
+- Core operations (e.g., insert, remove, search, enqueue, push/pop)
+- Edge cases (e.g., empty structures, single-element structures)
+- Structural correctness (e.g., BST validity, AVL balance factor, Red-Black Tree invariants)
+- Iterator behavior and traversal correctness
+
+This will ensure that each data structure behaves as expected and supports reliable usage in future projects.

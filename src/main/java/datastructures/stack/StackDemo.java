@@ -4,7 +4,7 @@ public class StackDemo {
 
     public static void main(String[] args) {
 
-        StackAsArray<Integer> stack = new StackAsArray<>();
+        ArrayStack<Integer> stack = new ArrayStack<>();
 
         System.out.println("Pushing elements...");
         stack.push(10);

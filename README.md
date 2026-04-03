@@ -21,6 +21,9 @@ No build tool required — compile and run directly.
 ## Project Structure
 ```
 java-data-structures/
+├── .mvn
+├── mvnw
+├── mvnw.cmd
 ├── pom.xml
 └── src/
     ├── main/

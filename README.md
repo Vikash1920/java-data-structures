@@ -2,20 +2,37 @@
 
 ![Java](https://img.shields.io/badge/Java-17+-orange)
 ![Status](https://img.shields.io/badge/Status-In%20Progress-yellow)
+![Tests](https://img.shields.io/badge/tests-passing-brightgreen)
 
 This repository contains implementations of fundamental data structures written in Java.
 
-The goal of this project is to understand how core data structures work internally by implementing them from scratch without relying on Java's built-in collections.
+The project focuses on understanding the internal mechanics of data structures by building them from scratch, with an emphasis on correctness, performance, and maintainability. Each implementation follows clean design principles and is validated through comprehensive JUnit 5 tests.
+
+---
+
+## Features
+
+- Generic implementations using Java generics
+- Clean and modular design
+- Iterator support for traversal
+- Self-balancing trees (AVL, Red-Black Tree)
+- Validation methods for structural correctness
+- Unit testing with JUnit 5 (including edge cases and stress tests)
 
 ---
 
 ## Getting Started
 
-**Requirements:** Java 17+
+### Requirements
+- Java 17+
+- Maven
 
-Clone the repository and open it in IntelliJ IDEA as a new project.  
-No build tool required — compile and run directly.
+### Build & Run Tests
 
+```bash
+mvn clean install
+mvn test
+```
 ---
 
 ## Project Structure
@@ -55,7 +72,13 @@ java-data-structures/
     │
     └── test
         └── java/
-                └── datastructures/  (planned)
+                └── datastructures/
+                    ├── binarysearchtree/
+                    │   └── BinarySearchTreeTest.java (planned)
+                    ├── redblacktree/
+                    │   └── RedBlackTreeTest.java 
+                    └── avltree/        
+                        └── AVLTreeTest.java (planned)
                                 
 ```
 
@@ -453,15 +476,25 @@ System.out.println(tree.isValidAVL());    // true
 ```
 
 ---
-## Testing (Planned)
+## Testing
 
-Unit tests will be implemented using **JUnit** for all data structures to ensure correctness.
+Unit tests are implemented using **JUnit 5**.
 
-Tests will cover:
+Currently covered:
+- Red-Black Tree:
+    - Insertion and search
+    - In-order traversal correctness
+    - Size tracking
+    - Exception handling (null insertion)
+    - Structural validation of Red-Black properties
+    - Randomized stress testing
+    - Iterator correctness
 
-- Core operations (e.g., insert, remove, search, enqueue, push/pop)
-- Edge cases (e.g., empty structures, single-element structures)
-- Structural correctness (e.g., BST validity, AVL balance factor, Red-Black Tree invariants)
-- Iterator behavior and traversal correctness
+Planned:
+- Binary Search Tree tests
+- AVL Tree tests
 
-This will ensure that each data structure behaves as expected and supports reliable usage in future projects.
+To run tests:
+```bash
+mvn test
+```
